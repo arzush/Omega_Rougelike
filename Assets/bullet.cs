@@ -40,5 +40,6 @@ public class bullet : MonoBehaviour
             Destroy(gameObject);
         }
         transform.Translate(Vector2.right * speed * Time.deltaTime);
+
     }
 }

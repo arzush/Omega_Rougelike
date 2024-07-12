@@ -14,12 +14,12 @@ public class Dvideo : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             // Add logic here to handle the Escape key press
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("alevel1");
         }
     }
     IEnumerator StartVideo()
     {
-        yield return new WaitForSeconds(34.0f);
-        SceneManager.LoadScene("Menu");
+        yield return new WaitForSeconds(50.0f);
+        SceneManager.LoadScene("alevel1");
     }
 }
