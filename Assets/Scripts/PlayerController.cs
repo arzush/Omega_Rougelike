@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,8 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     int speed;
     public float HP;
-
-    //public Text scoreText;
+   
+    public TMPro.TextMeshProUGUI scoreText;
+    
     private int counter = 0;
     private void Start()
     {
@@ -79,13 +81,30 @@ public class PlayerController : MonoBehaviour
 
 
     }
-
+    //здесь не включаем IsTrigger
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
             HP -= 10;
+        if (collision.gameObject.tag == "Poison")
+        {
+            HP -= 5;
+            Destroy(collision.gameObject);
+        }
+            
+        if (collision.gameObject.tag == "Hole")
+        {
+            HP -= 7;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Health")
+        {
+            HP += 10;
+            Destroy(collision.gameObject);
+        }
     }
 
+    //здесь включаем IsTrigger
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Money"))
@@ -93,8 +112,14 @@ public class PlayerController : MonoBehaviour
             counter++;
             Destroy(other.gameObject);
             Debug.Log($"Монет: {counter}");
-            //scoreText.text = "Money: " + counter;
-
+            scoreText.text = "Money: " + counter;
+        }
+        if (other.gameObject.CompareTag("Chest"))
+        {
+            counter += 5;
+            Destroy(other.gameObject);
+            //Debug.Log($"Монет: {counter}");
+            scoreText.text = "Money: " + counter;
         }
     }
 
