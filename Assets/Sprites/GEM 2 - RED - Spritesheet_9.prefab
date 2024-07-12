@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3838555146871020902}
   - component: {fileID: 2781666209943296068}
   - component: {fileID: 609766026659031869}
+  - component: {fileID: -7411288996985531139}
   m_Layer: 0
   m_Name: GEM 2 - RED - Spritesheet_9
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  effect_1: {fileID: 7033650303774708827, guid: 535ae1c98af413541b8e151b3ac66638, type: 3}
 --- !u!61 &609766026659031869
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,3 +146,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.23, y: 0.27}
   m_EdgeRadius: 0
+--- !u!50 &-7411288996985531139
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204378767005423496}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

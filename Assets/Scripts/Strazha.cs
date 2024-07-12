@@ -7,6 +7,7 @@ public class Strazha : MonoBehaviour
     public float speed;
     public float stoppingdistance;
     public float retreatDistance;
+    public int health;
 
     private Transform player;
 
@@ -50,11 +51,26 @@ public class Strazha : MonoBehaviour
             timeBtwShorts -= Time.deltaTime;
         }
 
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
 
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 
 
 }
+
+
+
+
+
 
 
 //using System.Collections;
