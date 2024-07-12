@@ -13,16 +13,32 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.right, distance, whatIsSolid);
         if (hitInfo.collider != null)
         {
             if (hitInfo.collider.CompareTag("Enemy"))
             {
-                hitInfo.collider.GetComponent<Courtier_enemy>().TakeDamage(damage);
+                Courtier_enemy courtierEnemy = hitInfo.collider.GetComponent<Courtier_enemy>();
+                if (courtierEnemy != null)
+                {
+                    courtierEnemy.TakeDamage(damage);
+                }
+
+                Strazha strazha = hitInfo.collider.GetComponent<Strazha>();
+                if (strazha != null)
+                {
+                    strazha.TakeDamage(damage);
+                }
+
+                FollowingEnemy followingenemy = hitInfo.collider.GetComponent<FollowingEnemy>();
+                if (followingenemy != null)
+                {
+                    followingenemy.TakeDamage(damage);
+                }
             }
 
             Destroy(gameObject);
         }
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 }

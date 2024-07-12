@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowingEnemy : MonoBehaviour
 {
     public float speed;
+    public int health;
     public GameObject effectDead;
     private Transform player;
 
@@ -17,6 +18,10 @@ public class FollowingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed* Time.deltaTime);
     }
 
@@ -29,4 +34,10 @@ public class FollowingEnemy : MonoBehaviour
         }
             
     }
+    // Method to take damage
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
 }
