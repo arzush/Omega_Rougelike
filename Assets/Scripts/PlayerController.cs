@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
             counter += 5;
             Destroy(other.gameObject);
             //Debug.Log($"Монет: {counter}");
-            scoreText.text = "Money: " + counter;
+            scoreText.text = "Respect: " + counter;
         }
     }
 
