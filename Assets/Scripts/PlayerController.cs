@@ -86,6 +86,12 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
             HP -= 10;
+        if (collision.gameObject.tag == "Enemy_patron")
+        {
+            HP -= 7;
+            Destroy(collision.gameObject);
+        }
+
         if (collision.gameObject.tag == "Poison")
         {
             HP -= 5;

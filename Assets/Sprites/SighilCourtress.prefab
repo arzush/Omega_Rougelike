@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -9159737541693975768}
   m_Layer: 0
   m_Name: SighilCourtress
-  m_TagString: Enemy
+  m_TagString: Enemy_patron
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  effect_1: {fileID: 7033650303774708827, guid: 535ae1c98af413541b8e151b3ac66638, type: 3}
 --- !u!61 &-9159737541693975768
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,7 +128,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
