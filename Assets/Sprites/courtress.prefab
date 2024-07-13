@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8102999393855056043}
   - component: {fileID: 4790310647445257758}
   - component: {fileID: 3870876376203149666}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: courtress
   m_TagString: Enemy
   m_Icon: {fileID: 0}
