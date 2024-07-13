@@ -35,10 +35,17 @@ public class bullet : MonoBehaviour
                 {
                     followingenemy.TakeDamage(damage);
                 }
+
+                sharim sharimmmm = hitInfo.collider.GetComponent<sharim>();
+                if (sharimmmm != null)
+                {
+                    sharimmmm.TakeDamage(damage);
+                }
             }
 
             Destroy(gameObject);
         }
         transform.Translate(Vector2.right * speed * Time.deltaTime);
+
     }
 }
