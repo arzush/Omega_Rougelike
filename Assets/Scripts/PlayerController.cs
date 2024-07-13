@@ -14,15 +14,29 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     int speed;
     public float HP;
-   
+
     public TMPro.TextMeshProUGUI scoreText;
-    
+
     private int counter = 0;
+
+    private float initialHP;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        initialHP = HP;
+    }
+
+    private void Update()
+    {
+
+        if (HP <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            HP = initialHP;
+        }
     }
 
     private void FixedUpdate()
@@ -88,15 +102,21 @@ public class PlayerController : MonoBehaviour
             HP -= 10;
         if (collision.gameObject.tag == "Poison")
         {
-            HP -= 5;
+            HP -= 6;
             Destroy(collision.gameObject);
         }
-            
+
         if (collision.gameObject.tag == "Hole")
         {
-            HP -= 7;
-            Destroy(collision.gameObject);
+            HP -= 5;
+            //Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag == "Thoms")
+        {
+            HP -= 8;
+            //Destroy(collision.gameObject);
+        }
+
         if (collision.gameObject.tag == "Health")
         {
             HP += 10;
@@ -111,98 +131,14 @@ public class PlayerController : MonoBehaviour
         {
             counter++;
             Destroy(other.gameObject);
-            Debug.Log($"Монет: {counter}");
-            scoreText.text = "Money: " + counter;
+            scoreText.text = "Respect: " + counter;
         }
         if (other.gameObject.CompareTag("Chest"))
         {
             counter += 5;
             Destroy(other.gameObject);
-            //Debug.Log($"Монет: {counter}");
             scoreText.text = "Respect: " + counter;
         }
     }
 
 }
-
-
-
-
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-
-//public class PlayerController : MonoBehaviour
-//{
-//    Animator animator;
-//    Rigidbody2D rb;
-//    SpriteRenderer sprite;
-
-//    [SerializeField]
-//    int speed;
-
-//    private void Start()
-//    {
-//        animator = GetComponent<Animator>();
-//        rb = GetComponent<Rigidbody2D>();
-//        sprite = GetComponent<SpriteRenderer>();
-//    }
-
-
-
-//    private void FixedUpdate()
-//    {
-//        if (Input.GetKey(KeyCode.D))
-//        {
-//            rb.velocity = new Vector2(speed, rb.velocity.y);
-//            animator.Play("skrepka_run_bpk");
-//            sprite.flipX = false;
-//        }
-//        else if (Input.GetKey(KeyCode.A))
-//        {
-//            rb.velocity = new Vector2(-speed, rb.velocity.y);
-//            animator.Play("skrepka_run_bpk");
-//            sprite.flipX = true;
-//        }
-//        else
-//        {
-//            rb.velocity = new Vector2(0, 0);
-//            animator.Play("New Animation");
-//        }
-
-//        if (Input.GetKey(KeyCode.W))
-//        {
-//            rb.velocity = new Vector2(rb.velocity.x, speed);
-//            animator.Play("skrepka_run_back");
-
-//        }
-//        else if (Input.GetKey(KeyCode.S))
-//        {
-//            rb.velocity = new Vector2(rb.velocity.x, -speed);
-//            animator.Play("skrepka_run");
-//        }
-
-
-
-//    }
-
-
-
-//}
-
-
-//private Rigidbody2D rb;
-//public float speed = 0.9f;
-//private Vector2 moveVector;
-
-//void Awake()
-//{
-//    rb = GetComponent<Rigidbody2D>();
-//}
-
-//void Update()
-//{
-//    moveVector.x = Input.GetAxis("Horizontal");
-//    moveVector.y = Input.GetAxis("Vertical");
-//    rb.MovePosition(rb.position + moveVector * speed * Time.deltaTime);
-//}
