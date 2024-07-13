@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5801820864549842867}
   - component: {fileID: 7673288184410685382}
   - component: {fileID: 1936417503896531306}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: TearSorcerer
   m_TagString: Enemy
   m_Icon: {fileID: 0}

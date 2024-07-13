@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 790378554042250494}
   - component: {fileID: 6346992760856797388}
   - component: {fileID: 8354813005671151917}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: courtier
   m_TagString: Enemy
   m_Icon: {fileID: 0}
