@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     public TMPro.TextMeshProUGUI scoreText;
 
+
+
     private int counter = 0;
 
     private float initialHP;
@@ -27,7 +29,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         initialHP = HP;
+  
     }
+   
 
     private void Update()
     {
@@ -133,17 +137,48 @@ public class PlayerController : MonoBehaviour
     //здесь включаем IsTrigger
     private void OnTriggerEnter2D(Collider2D other)
     {
+        int level = SceneManager.GetActiveScene().buildIndex;
+
         if (other.gameObject.CompareTag("Money"))
         {
             counter++;
             Destroy(other.gameObject);
             scoreText.text = "Respect: " + counter;
         }
-        if (other.gameObject.CompareTag("Chest"))
+        else if (other.gameObject.CompareTag("Chest"))
         {
             counter += 5;
             Destroy(other.gameObject);
             scoreText.text = "Respect: " + counter;
+        }
+
+        switch (level)
+        {
+            case 2:
+                int savedCounter1 = PlayerPrefs.GetInt("Level1", 0);
+                if (counter > savedCounter1)
+                {
+                    PlayerPrefs.SetInt("Level1", counter);
+                }
+                break;
+            case 3:
+                int savedCounter2 = PlayerPrefs.GetInt("Level2", 0);
+                if (counter > savedCounter2)
+                {
+                    PlayerPrefs.SetInt("Level2", counter);
+                }
+                break;
+            case 4:
+                int savedCounter3 = PlayerPrefs.GetInt("Level3", 0);
+                if (counter > savedCounter3)
+                {
+                    PlayerPrefs.SetInt("Level3", counter);
+                }
+                break;
+            // добавьте больше уровней, если нужно
+            default:
+                Debug.LogWarning("Неизвестный уровень: " + level);
+                break;
         }
     }
 
