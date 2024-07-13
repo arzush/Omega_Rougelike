@@ -14,8 +14,7 @@ TagManager:
   - Hole
   - Health
   - Thoms
-
-
+  - Enemy_patron
   layers:
   - Default
   - TransparentFX
@@ -23,10 +22,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
-  - Player
-  - Enviroment
   - Solid
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -52,10 +51,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Wall
-    uniqueID: 1712085249
-    locked: 0
-  - name: New Layer 2
-    uniqueID: 2340955047
     locked: 0
