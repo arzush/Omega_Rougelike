@@ -13,7 +13,9 @@ TagManager:
   - Chest
   - Hole
   - Health
-  - Bullet
+  - Thoms
+
+
   layers:
   - Default
   - TransparentFX
