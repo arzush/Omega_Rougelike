@@ -121,18 +121,18 @@ public class PlayerController : MonoBehaviour
             HP -= 5;
             //Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.tag == "Thoms")
+       if (collision.gameObject.tag == "Thoms")
         {
             HP -= 8;
             //Destroy(collision.gameObject);
         }
 
-        else if (collision.gameObject.tag == "Health")
+        if (collision.gameObject.tag == "Health")
         {
             HP += 10;
             Destroy(collision.gameObject);
         }
-        else if(collision.gameObject.tag == "Food")
+        if(collision.gameObject.tag == "Food")
         {
             HP += 3;
             Destroy(collision.gameObject);
@@ -159,6 +159,12 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("Gold"))
         {
             counter += 7;
+            Destroy(other.gameObject);
+            scoreText.text = "Respect: " + counter;
+        }
+        else if (other.gameObject.CompareTag("Stone"))
+        {
+            counter += 9;
             Destroy(other.gameObject);
             scoreText.text = "Respect: " + counter;
         }
