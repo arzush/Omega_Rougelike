@@ -235,6 +235,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3402469745231027762, guid: 2df5f75b5eaf0514b9f4f3d958650372, type: 3}
+<<<<<<< Updated upstream
       propertyPath: speed
       value: 15
       objectReference: {fileID: 0}
@@ -253,6 +254,14 @@ PrefabInstance:
     - target: {fileID: 5640449399849209699, guid: 2df5f75b5eaf0514b9f4f3d958650372, type: 3}
       propertyPath: speed
       value: 15
+=======
+      propertyPath: health
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640449399849209699, guid: 2df5f75b5eaf0514b9f4f3d958650372, type: 3}
+      propertyPath: health
+      value: 4
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 6684410547720276501, guid: 2df5f75b5eaf0514b9f4f3d958650372, type: 3}
       propertyPath: m_Name
