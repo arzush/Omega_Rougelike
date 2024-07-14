@@ -7,6 +7,7 @@ public class AreaClearChecker : MonoBehaviour
     public Vector3 areaSize; // Размер области проверки
 
     private Renderer objectRenderer;
+    private BoxCollider2D boxCollider;
 
     void Start()
     {
@@ -15,6 +16,13 @@ public class AreaClearChecker : MonoBehaviour
         if (objectRenderer == null)
         {
             Debug.LogWarning("Renderer not found on the object.");
+        }
+
+        // Получить компонент BoxCollider2D для управления его активностью
+        boxCollider = GetComponent<BoxCollider2D>();
+        if (boxCollider == null)
+        {
+            Debug.LogWarning("BoxCollider2D not found on the object.");
         }
     }
 
@@ -36,10 +44,15 @@ public class AreaClearChecker : MonoBehaviour
             }
         }
 
-        // Установить видимость объекта в зависимости от наличия врагов в области
+        // Установить видимость объекта и активность коллайдера в зависимости от наличия врагов в области
         if (objectRenderer != null)
         {
             objectRenderer.enabled = enemiesInArea;
+        }
+
+        if (boxCollider != null)
+        {
+            boxCollider.enabled = enemiesInArea;
         }
     }
 
@@ -55,9 +68,9 @@ public class AreaClearChecker : MonoBehaviour
     }
 
     // Для удобства визуализации области проверки в редакторе
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(areaCenter, areaSize);
-    }
+    //void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireCube(areaCenter, areaSize);
+    //}
 }
